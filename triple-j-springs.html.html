@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Triple J Springs — Flowing Solutions, Flawless Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f0;
+      --gray-100: #e8e8e3;
+      --gray-300: #b0b0a8;
+      --gray-500: #6b6b63;
+      --gray-700: #2e2e2a;
+      --accent: #c8a96e;
+      --accent-light: #e2c99a;
+      --water: #3a7ca5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,169,110,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-300);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--black) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent-light) !important; color: var(--black) !important; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 4rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 70% 40%, rgba(58,124,165,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(200,169,110,0.08) 0%, transparent 55%),
+        var(--black);
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-pipe {
+      position: absolute;
+      top: 0; right: 12%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      opacity: 0.18;
+    }
+
+    .hero-pipe::after {
+      content: '';
+      position: absolute;
+      bottom: 35%;
+      left: -18px;
+      width: 38px;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(200,169,110,0.12);
+      border: 1px solid rgba(200,169,110,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero-title .line2 { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gray-300);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      font-style: italic;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1.2rem; align-items: center;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--accent);
+      color: var(--black);
+      padding: 1rem 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      color: var(--white);
+      padding: 1rem 2rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-stats {
+      position: absolute;
+      right: 4rem; bottom: 6rem;
+      display: flex; flex-direction: column; gap: 2rem;
+      z-index: 1;
+      animation: fadeLeft 0.8s 0.4s ease both;
+    }
+
+    .stat { text-align: right; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      color: var(--gray-300);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--gray-700);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .about-img {
+      background: var(--gray-500);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-img:first-child { grid-row: span 2; }
+
+    .about-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%);
+    }
+
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #2e2e2a 0%, #1a1a17 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray-500);
+      font-size: 2rem;
+    }
+
+    .about-img-placeholder.short {
+      aspect-ratio: 4/3;
+    }
+
+    .about-img-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-300);
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .highlight {
+      padding: 1.2rem;
+      border: 1px solid rgba(200,169,110,0.15);
+      border-radius: 2px;
+    }
+
+    .highlight-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .highlight-title { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+    .highlight-desc { font-size: 0.78rem; color: var(--gray-500); line-height: 1.5; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--black); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding-bottom: 3rem;
+    }
+
+    .services-tabs {
+      display: flex; gap: 0.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--gray-300);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--black);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .service-card {
+      background: var(--black);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--gray-700); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      background: rgba(200,169,110,0.1);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+      color: var(--white);
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-price {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* Emergency badge */
+    .service-card.emergency { background: rgba(200,169,110,0.04); }
+    .emergency-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {
+      background: var(--gray-700);
+    }
+
+    .portfolio-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 1rem;
+    }
+
+    .port-item {
+      background: var(--black);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .port-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .port-item:nth-child(2) { grid-column: span 4; }
+    .port-item:nth-child(3) { grid-column: span 3; }
+    .port-item:nth-child(4) { grid-column: span 3; }
+    .port-item:nth-child(5) { grid-column: span 4; }
+
+    .port-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a1a17 0%, #2a2a26 50%, #1a1a17 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    .port-placeholder-icon { font-size: 2.5rem; opacity: 0.5; }
+    .port-placeholder-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(transparent 40%, rgba(0,0,0,0.85));
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex; align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .port-item:hover .port-overlay { opacity: 1; }
+
+    .port-info { }
+    .port-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    .port-tag {
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials-section {
+      background: var(--black);
+      padding: 7rem 4rem;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .testi-quote {
+      font-size: 3rem;
+      color: var(--accent);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-family: Georgia, serif;
+    }
+
+    .testi-text {
+      font-size: 0.88rem;
+      color: var(--gray-300);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-author {
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .testi-avatar {
+      width: 40px; height: 40px;
+      background: var(--gray-700);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .testi-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .testi-role {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    .testi-stars {
+      position: absolute; top: 2rem; right: 2rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--gray-700);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(200,169,110,0.1);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-detail-value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .contact-detail-value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail-value a:hover { color: var(--accent); }
+
+    .contact-form {
+      background: rgba(0,0,0,0.3);
+      padding: 2.5rem;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .form-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-bottom: 2rem;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group select option { background: #1a1a17; color: var(--white); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { resize: none; height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: var(--black);
+      border: none;
+      padding: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .form-submit:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── SERVICE AREA STRIP ── */
+    .area-strip {
+      background: var(--accent);
+      color: var(--black);
+      padding: 1.2rem 4rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      overflow: hidden;
+    }
+
+    .area-strip-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .area-strip-items {
+      display: flex;
+      gap: 2.5rem;
+      animation: marquee 18s linear infinite;
+    }
+
+    .area-strip-item {
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .area-strip-item::before { content: '📍'; font-size: 0.7rem; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      padding: 4rem 4rem 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-name span { color: var(--accent); }
+
+    .footer-brand-desc {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    .footer-emergency {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(200,169,110,0.08);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 2px;
+    }
+
+    .footer-emergency-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .footer-emergency-text {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-emergency-num {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 200;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      #home { padding: 0 1.5rem 4rem; }
+      .hero-stats { display: none; }
+      section { padding: 4rem 1.5rem; }
+
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-image-grid { display: none; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .port-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+      .testi-grid { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .area-strip { padding: 1rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">Triple J <span>Springs</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-pipe"></div>
+    <div class="hero-content">
+      <div class="hero-badge">24/7 Emergency Response Available</div>
+      <h1 class="hero-title">
+        Triple J<br>
+        <span class="line2">Springs</span>
+      </h1>
+      <p class="hero-sub">Flowing Solutions, Flawless Results — Nairobi's trusted plumbing specialists for residential and commercial projects.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/254725740083" class="btn-primary" target="_blank">💬 WhatsApp Us</a>
+        <a href="#services" class="btn-secondary">View Services →</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Projects Done</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA STRIP -->
+  <div class="area-strip">
+    <div class="area-strip-label">Service Areas</div>
+    <div class="area-strip-items">
+      <span class="area-strip-item">Westlands</span>
+      <span class="area-strip-item">Kilimani</span>
+      <span class="area-strip-item">Karen</span>
+      <span class="area-strip-item">Langata</span>
+      <span class="area-strip-item">Parklands</span>
+      <span class="area-strip-item">Eastleigh</span>
+      <span class="area-strip-item">South B & C</span>
+      <span class="area-strip-item">Kiambu</span>
+      <span class="area-strip-item">Ruaka</span>
+      <span class="area-strip-item">Thika Road</span>
+      <span class="area-strip-item">Westlands</span>
+      <span class="area-strip-item">Kilimani</span>
+      <span class="area-strip-item">Karen</span>
+      <span class="area-strip-item">Langata</span>
+      <span class="area-strip-item">Parklands</span>
+      <span class="area-strip-item">Eastleigh</span>
+      <span class="area-strip-item">South B & C</span>
+      <span class="area-strip-item">Kiambu</span>
+      <span class="area-strip-item">Ruaka</span>
+      <span class="area-strip-item">Thika Road</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-image-grid">
+      <div class="about-img">
+        <div class="about-img-placeholder">🔧</div>
+        <div class="about-img-label">Our Team at Work</div>
+      </div>
+      <div class="about-img">
+        <div class="about-img-placeholder short">🚿</div>
+        <div class="about-img-label">Residential Project</div>
+      </div>
+      <div class="about-img">
+        <div class="about-img-placeholder short">🏢</div>
+        <div class="about-img-label">Commercial Installation</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Nairobi's Trusted Plumbing Experts</h2>
+      <p class="section-body">
+        Triple J Springs is a full-service plumbing company serving homes, apartments, offices, and commercial establishments across Nairobi and surrounding areas. We combine technical expertise with a commitment to quality workmanship — every pipe, every fitting, every result is to the highest standard.
+      </p>
+      <div class="about-highlights">
+        <div class="highlight">
+          <div class="highlight-icon">⚡</div>
+          <div class="highlight-title">24/7 Emergency</div>
+          <div class="highlight-desc">Round-the-clock rapid response for urgent plumbing issues.</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">🏅</div>
+          <div class="highlight-title">Certified Plumbers</div>
+          <div class="highlight-desc">Fully trained and experienced professionals on every job.</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">💼</div>
+          <div class="highlight-title">Residential & Commercial</div>
+          <div class="highlight-desc">From single homes to large commercial complexes.</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">✅</div>
+          <div class="highlight-title">Guaranteed Work</div>
+          <div class="highlight-desc">All work guaranteed. We don't leave until it's right.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Our Services</h2>
+      </div>
+      <div class="services-tabs">
+        <button class="tab-btn active" onclick="filterServices('all', this)">All</button>
+        <button class="tab-btn" onclick="filterServices('emergency', this)">Emergency</button>
+        <button class="tab-btn" onclick="filterServices('residential', this)">Residential</button>
+        <button class="tab-btn" onclick="filterServices('commercial', this)">Commercial</button>
+      </div>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+
+      <div class="service-card emergency" data-cat="emergency">
+        <div class="emergency-badge">24/7</div>
+        <div class="service-icon">🚨</div>
+        <div class="service-name">Emergency Plumbing</div>
+        <div class="service-desc">Burst pipes, emergency leaks, overflowing toilets — we respond fast, day or night.</div>
+        <div class="service-price">From KES 2,000 · Call-out from KES 3,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">💧</div>
+        <div class="service-name">Leak Detection & Repair</div>
+        <div class="service-desc">Visible pipe leaks, hidden wall leaks, underground water leaks detected and repaired.</div>
+        <div class="service-price">KES 1,500 – 20,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🚽</div>
+        <div class="service-name">Toilet Services</div>
+        <div class="service-desc">Unclogging, flush system repairs, toilet installation and full replacements.</div>
+        <div class="service-price">KES 1,500 – 15,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🚰</div>
+        <div class="service-name">Sink & Tap Services</div>
+        <div class="service-desc">Tap repairs, faucet replacements, kitchen and bathroom sink installations.</div>
+        <div class="service-price">KES 800 – 7,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🌊</div>
+        <div class="service-name">Drainage & Sewer</div>
+        <div class="service-desc">Drain cleaning, sewer line cleaning, hydro jetting and high-pressure clearing.</div>
+        <div class="service-price">KES 2,000 – 25,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🔥</div>
+        <div class="service-name">Water Heater Services</div>
+        <div class="service-desc">Instant shower, electric, and solar water heater installation and repairs.</div>
+        <div class="service-price">KES 2,500 – 80,000+</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🔩</div>
+        <div class="service-name">Pipe Installation</div>
+        <div class="service-desc">PPR piping, full house repiping, bathroom plumbing renovation and new installations.</div>
+        <div class="service-price">KES 500/m – 200,000</div>
+      </div>
+
+      <div class="service-card" data-cat="residential">
+        <div class="service-icon">🪣</div>
+        <div class="service-name">Water Systems</div>
+        <div class="service-desc">Water tank installation, booster pumps, borehole connections and pressure solutions.</div>
+        <div class="service-price">KES 3,000 – 100,000</div>
+      </div>
+
+      <div class="service-card" data-cat="commercial">
+        <div class="service-icon">🏢</div>
+        <div class="service-name">Commercial Plumbing</div>
+        <div class="service-desc">Full-service plumbing for offices, apartments, restaurants, schools and Airbnbs.</div>
+        <div class="service-price">Contracts from KES 10,000/mo</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-label">Our Work</div>
+        <h2 class="section-title">Project Portfolio</h2>
+      </div>
+      <a href="#contact" class="btn-secondary">Start Your Project →</a>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="port-item">
+        <div class="port-placeholder">
+          <div class="port-placeholder-icon">🏠</div>
+          <div class="port-placeholder-label">Project Image</div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-info">
+            <div class="port-title">Full Bathroom Renovation</div>
+            <div class="port-tag">Residential · Karen, Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-item">
+        <div class="port-placeholder">
+          <div class="port-placeholder-icon">🏢</div>
+          <div class="port-placeholder-label">Project Image</div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-info">
+            <div class="port-title">Office Block Plumbing</div>
+            <div class="port-tag">Commercial · Westlands</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-item">
+        <div class="port-placeholder">
+          <div class="port-placeholder-icon">☀️</div>
+          <div class="port-placeholder-label">Project Image</div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-info">
+            <div class="port-title">Solar Heater Installation</div>
+            <div class="port-tag">Residential · Kilimani</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-item">
+        <div class="port-placeholder">
+          <div class="port-placeholder-icon">🔩</div>
+          <div class="port-placeholder-label">Project Image</div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-info">
+            <div class="port-title">Full Repiping Project</div>
+            <div class="port-tag">Residential · Langata</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-item">
+        <div class="port-placeholder">
+          <div class="port-placeholder-icon">🍽️</div>
+          <div class="port-placeholder-label">Project Image</div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-info">
+            <div class="port-title">Restaurant Kitchen Plumbing</div>
+            <div class="port-tag">Commercial · CBD Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials-section">
+    <div class="section-label">Client Reviews</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Called Triple J Springs at midnight for a burst pipe emergency. They arrived within the hour and fixed everything professionally. Absolutely reliable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div>
+            <div class="testi-name">James Mwangi</div>
+            <div class="testi-role">Homeowner · Karen</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">We hired Triple J Springs for our restaurant's kitchen plumbing setup. The work was neat, fast and priced fairly. Our go-to plumbers from now on.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AW</div>
+          <div>
+            <div class="testi-name">Amina Wanjiru</div>
+            <div class="testi-role">Restaurant Owner · Westlands</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Had a hidden wall leak that other plumbers couldn't find. Triple J Springs detected and fixed it the same day. Outstanding detection skills and service.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PO</div>
+          <div>
+            <div class="testi-name">Peter Omondi</div>
+            <div class="testi-role">Property Manager · Kilimani</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Get to Work</h2>
+      <p class="section-body" style="margin-bottom: 3rem;">Whether it's an emergency or a planned project, Triple J Springs is ready. Reach us via phone or WhatsApp — we're available 24/7.</p>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Phone & WhatsApp</div>
+          <div class="contact-detail-value">
+            <a href="tel:+254725740083">+254 725 740083</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-detail-label">WhatsApp Direct</div>
+          <div class="contact-detail-value">
+            <a href="https://wa.me/254725740083" target="_blank">Chat with us on WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Service Area</div>
+          <div class="contact-detail-value">Nairobi & Surrounding Areas</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">⏰</div>
+        <div>
+          <div class="contact-detail-label">Availability</div>
+          <div class="contact-detail-value">24/7 Including Public Holidays</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Request a Quote</div>
+      <div class="form-subtitle">Fill in your details and we'll get back to you promptly.</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Doe"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+254 700 000000"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Emergency Plumbing</option>
+          <option>Leak Detection & Repair</option>
+          <option>Toilet Services</option>
+          <option>Sink & Tap Services</option>
+          <option>Drainage & Sewer</option>
+          <option>Water Heater Services</option>
+          <option>Pipe Installation</option>
+          <option>Water Systems</option>
+          <option>Commercial Plumbing</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Location / Area</label>
+        <input type="text" placeholder="e.g. Westlands, Nairobi"/>
+      </div>
+
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea placeholder="Describe your plumbing issue or project..."></textarea>
+      </div>
+
+      <button class="form-submit" onclick="handleSubmit()">Send via WhatsApp →</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Triple J <span>Springs</span></div>
+        <p class="footer-brand-desc">Flowing Solutions, Flawless Results. Nairobi's trusted plumbing specialists for residential and commercial needs.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Emergency Plumbing</a></li>
+          <li><a href="#services">Leak Detection</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
+          <li><a href="#services">Water Heaters</a></li>
+          <li><a href="#services">Commercial</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+254725740083">+254 725 740083</a></li>
+          <li><a href="https://wa.me/254725740083" target="_blank">WhatsApp</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Triple J Springs. All rights reserved. · Nairobi, Kenya</div>
+      <div class="footer-emergency">
+        <div class="footer-emergency-dot"></div>
+        <div class="footer-emergency-text">24/7 Emergency Line:</div>
+        <a href="tel:+254725740083" class="footer-emergency-num">+254 725 740083</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/254725740083" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <script>
+    // Service filter
+    function filterServices(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.service-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // WhatsApp form submit
+    function handleSubmit() {
+      const name = document.querySelector('input[placeholder="John Doe"]').value || 'Customer';
+      const phone = document.querySelector('input[type="tel"]').value || 'N/A';
+      const service = document.querySelector('select').value || 'Not specified';
+      const location = document.querySelector('input[placeholder*="Westlands"]').value || 'Not specified';
+      const msg = document.querySelector('textarea').value || '';
+      const text = `Hello Triple J Springs!%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Location:* ${location}%0A*Message:* ${msg || 'None'}`;
+      window.open(`https://wa.me/254725740083?text=${text}`, '_blank');
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .testi-card, .port-item, .highlight').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
